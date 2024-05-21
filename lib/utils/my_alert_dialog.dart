@@ -21,6 +21,7 @@ class MyAlertDialog<T> extends StatelessWidget {
       height: 0.0,
     ),
     this.isDividerEnabled = true,
+    this.dialogColor,
   });
 
   /// The (optional) title of the dialog is displayed in a large font at the top
@@ -93,6 +94,9 @@ class MyAlertDialog<T> extends StatelessWidget {
   ///[divider] is not displayed if set to false. Default is set to true.
   final bool? isDividerEnabled;
 
+  ///dialog color
+  final Colors? dialogColor;
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = <Widget>[];
@@ -151,9 +155,12 @@ class MyAlertDialog<T> extends StatelessWidget {
 
     if (label != null) {
       dialogChild =
-           Semantics(namesRoute: true, label: label, child: dialogChild);
+          Semantics(namesRoute: true, label: label, child: dialogChild);
     }
 
-    return Dialog(child: dialogChild);
+    return Dialog(
+      child: dialogChild,
+      backgroundColor: dialogColor,
+    );
   }
 }

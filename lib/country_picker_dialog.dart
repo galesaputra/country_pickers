@@ -89,6 +89,9 @@ class CountryPickerDialog extends StatefulWidget {
   ///Filters the country list for search
   final SearchFilter? searchFilter;
 
+  ///Dialog Color
+  final Colors? dialogColor;
+
   const CountryPickerDialog({
     super.key,
     required this.onValuePicked,
@@ -110,6 +113,7 @@ class CountryPickerDialog extends StatefulWidget {
     this.searchCursorColor,
     this.searchEmptyView,
     this.searchFilter,
+    this.dialogColor = Colors.white,
   });
 
   @override
@@ -134,8 +138,7 @@ class SingleChoiceDialogState extends State<CountryPickerDialog> {
 
     if (widget.priorityList != null) {
       for (var country in widget.priorityList!) {
-        _allCountries
-          .removeWhere((Country c) => country.isoCode == c.isoCode);
+        _allCountries.removeWhere((Country c) => country.isoCode == c.isoCode);
       }
       _allCountries.insertAll(0, widget.priorityList!);
     }
@@ -154,6 +157,7 @@ class SingleChoiceDialogState extends State<CountryPickerDialog> {
       content: _buildContent(context),
       isDividerEnabled: widget.isDividerEnabled,
       divider: widget.divider,
+      dialogColor: widget.dialogColor,
     );
   }
 
@@ -204,8 +208,8 @@ class SingleChoiceDialogState extends State<CountryPickerDialog> {
   _buildSearchField() {
     return TextField(
       cursorColor: widget.searchCursorColor,
-      decoration:
-          widget.searchInputDecoration ?? const InputDecoration(hintText: 'Search'),
+      decoration: widget.searchInputDecoration ??
+          const InputDecoration(hintText: 'Search'),
       onChanged: (String value) {
         setState(() {
           _filteredCountries = _allCountries
