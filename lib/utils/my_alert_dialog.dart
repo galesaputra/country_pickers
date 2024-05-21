@@ -95,7 +95,7 @@ class MyAlertDialog<T> extends StatelessWidget {
   final bool? isDividerEnabled;
 
   ///dialog color
-  final Colors? dialogColor;
+  final Color? dialogColor;
 
   @override
   Widget build(BuildContext context) {

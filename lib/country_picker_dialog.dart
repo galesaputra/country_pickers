@@ -90,7 +90,7 @@ class CountryPickerDialog extends StatefulWidget {
   final SearchFilter? searchFilter;
 
   ///Dialog Color
-  final Colors? dialogColor;
+  final Color? dialogColor;
 
   const CountryPickerDialog({
     super.key,
