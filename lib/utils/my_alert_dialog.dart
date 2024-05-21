@@ -161,6 +161,7 @@ class MyAlertDialog<T> extends StatelessWidget {
     return Dialog(
       child: dialogChild,
       backgroundColor: dialogColor,
+      surfaceTintColor: dialogColor,
     );
   }
 }
